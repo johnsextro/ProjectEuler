@@ -10,12 +10,12 @@ public class ChallengeFive {
         for (Long prime : primes) {
             Long product = prime;
             do {
-                if (product * prime < maxNum) {
+                if (product * prime <= maxNum) {
                     product = product * prime;
                 } else {
                     break;
                 }
-            } while (product < maxNum);
+            } while (product <= maxNum);
 
             finalProduct = finalProduct * product;
         }
@@ -23,24 +23,19 @@ public class ChallengeFive {
     }
 
     static ArrayList<Long> calculatePrimes(long inputNumber) {
-
         ArrayList<Long> primes = new ArrayList<Long>();
-
         for (int n = 1; n <= inputNumber; n++) {
             if(isPrime(n))
-                primes.add(new Long(n));
+                primes.add((long) n);
         }
-
         return primes;
     }
 
-    static boolean isPrime(long n)
+    private static boolean isPrime(long n)
     {
-        // Corner case
         if (n <= 1)
             return false;
 
-        // Check from 2 to n-1
         for (long i = 2; i < n; i++)
             if (n % i == 0)
                 return false;
