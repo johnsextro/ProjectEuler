@@ -20,8 +20,9 @@ public class ChallengeSeven {
     {
         if (n <= 1)
             return false;
+        int m = (int)Math.sqrt(n) + 1;
 
-        for (long i = 2; i < n; i++)
+        for (long i = 2; i < m; ++i)
             if (n % i == 0)
                 return false;
 
